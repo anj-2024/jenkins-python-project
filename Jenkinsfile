@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo "Rinning tests..."
                 sh '''
-                .venv/bin/activate
+                . venv/bin/activate
                 pytest
                 '''
             }
