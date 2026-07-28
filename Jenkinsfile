@@ -11,13 +11,20 @@ pipeline {
         stage('Intsall Dependencies') {
             steps {
                 echo "Installing dependencies..."
-                sh 'python3 -m pip install -r requirements.txt'
+                sh ''' python3 -m venv venv 
+                .venv/bin/activate/
+                pip install --upgrade pip
+                pip install -r requirements.txt
+                '''
             }
         }
         stage('Run Tests') {
             steps {
                 echo "Rinning tests..."
-                sh 'python3 -m pytest'
+                sh '''
+                .venv/bin/activate
+                pytest
+                '''
             }
         }
         stage('Build') {
