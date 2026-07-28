@@ -17,13 +17,13 @@ pipeline {
         stage('Run Tests') {
             steps {
                 echo "Rinning tests..."
-                sh 'pytest'
+                sh 'python3 -m pytest'
             }
         }
         stage('Build') {
             steps {
                 echo "Building the application..."
-                sh 'python appp.py'
+                sh 'python3 appp.py'
             }
         }
     }
